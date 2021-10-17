@@ -25,7 +25,8 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/staging.key
           chmod 600 ~/.ssh/staging.key
           cat >>~/.ssh/config <<END
-          Host staging
+
+          Host *
             HostName $SSH_HOST
             User $SSH_USER
             IdentityFile ~/.ssh/staging.key
@@ -35,7 +36,7 @@ jobs:
           mkdir test1
           touch ./test1/newfile.txt
 
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/staging.key
 
         # ssh $SSH_USER@$SSH_HOST
         #rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
