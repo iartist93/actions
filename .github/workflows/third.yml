@@ -15,10 +15,12 @@ jobs:
           mkdir -p ~/.ssh
           touch ~/.ssh/authorized_keys
           touch ~/.ssh/known_hosts
+          touch ~/.ssh/github-actions
 
           chmod 700 ~/.ssh
           chmod 700 ~/.ssh/authorized_keys
           chmod 700 ~/.ssh/known_hosts
+          chmod 700 ~/.ssh/github-actions
 
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
