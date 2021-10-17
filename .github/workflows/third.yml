@@ -35,8 +35,9 @@ jobs:
           mkdir test1
           touch ./test1/newfile.txt
 
-          ssh $SSH_USER@$SSH_HOST
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
+        # ssh $SSH_USER@$SSH_HOST
         #rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
 
         env:
