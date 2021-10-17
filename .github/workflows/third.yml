@@ -25,17 +25,6 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/staging.key
           chmod 600 ~/.ssh/staging.key
 
-          cat >>~/.ssh/config <<END
-
-          Host staging
-            HostName $SSH_HOST
-            User $SSH_USER
-            IdentityFile ~/.ssh/staging.key
-            Port 22
-          END
-
-          cat ~/.ssh/config
-
       - name: Check out the source
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/staging.key
 
