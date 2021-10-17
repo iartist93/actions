@@ -12,13 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: install ssh key
-      - run: |
-          ls -la
-        # mkdir -p ~/.ssh
-        # chmod 700 ~/.ssh
-        # chmod 600 ~/.ssh/authorized_keys
-        # ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-        # echo ${{ secrets.SSH_HOST }} | base64 --decode -i > ~/.ssh/github-actions
-        # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
-        # ls -la
-        # pwd
+      - run: ls -la
+# mkdir -p ~/.ssh
+# chmod 700 ~/.ssh
+# chmod 600 ~/.ssh/authorized_keys
+# ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+# echo ${{ secrets.SSH_HOST }} | base64 --decode -i > ~/.ssh/github-actions
+# ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
+# ls -la
+# pwd
