@@ -23,6 +23,8 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
 
+          cat ~/.ssh/id_rsa
+
         # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
         shell: bash
