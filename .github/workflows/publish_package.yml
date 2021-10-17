@@ -1,0 +1,19 @@
+# name: Publish NPM Package
+# on:
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   publish-gpr:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v2
+
+#       - uses: actions/setup-node@v1
+#         with:
+#           registry-url: http://npm.pkg.github.com/
+
+#       - run: npm publish
+#         env:
+#           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
