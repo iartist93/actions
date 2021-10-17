@@ -33,6 +33,7 @@ jobs:
             StrictHostKeyChecking no
           END
 
+          cat ~/.ssh/config
           mkdir test1
           touch ./test1/newfile.txt
 
