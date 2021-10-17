@@ -15,21 +15,17 @@ jobs:
           mkdir -p ~/.ssh
           touch ~/.ssh/authorized_keys
           touch ~/.ssh/known_hosts
-          touch ~/.ssh/github-actions
 
           chmod 700 ~/.ssh
           chmod 700 ~/.ssh/authorized_keys
           chmod 700 ~/.ssh/known_hosts
-          chmod 700 ~/.ssh/github-actions
 
-          ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
-          echo "$SSH_PRIVATE_KEY" | base64 --decode -i > ~/.ssh/github-actions
-          ssh -i $SSH_PRIVATE_KEY ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
         shell: bash
-        env:
-          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-          SSH_HOST: ${{secrets.SSH_HOST}}
 
         # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
         # cat ~/.ssh/github-actions
