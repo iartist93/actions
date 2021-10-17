@@ -22,8 +22,8 @@ jobs:
 
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-        # cat ~/.ssh/authorized_keys
-        # cat ~/.ssh/known_hosts
+          cat ~/.ssh/authorized_keys
+          cat ~/.ssh/known_hosts
 
         # ls -la
         # pwd
