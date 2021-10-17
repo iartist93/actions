@@ -15,10 +15,12 @@ jobs:
           mkdir -p ~/.ssh
           touch ~/.ssh/authorized_keys
           touch ~/.ssh/known_hosts
+          touch ~/.ssh/id_rsa
 
           chmod 700 ~/.ssh
           chmod 700 ~/.ssh/authorized_keys
           chmod 700 ~/.ssh/known_hosts
+          chmod 700 ~/.ssh/id_rsa
 
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
