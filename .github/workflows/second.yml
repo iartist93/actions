@@ -22,7 +22,9 @@ jobs:
       # run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: log dirs
-        run: echo 'ls -la'
+        run: |
+          echo "Root Directory"
+          ls -l .
 
       - name: login again
         run: ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
