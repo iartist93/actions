@@ -11,11 +11,11 @@ jobs:
 
       - run: git pull origin master
 
-      - run: git add .
-
       - run: git config --global user.email "mongez.me@gmail.com"
 
       - run: git config --global user.name "Ahmad"
+
+      - run: git add .
 
       - run: git commit -m 'test'
 
