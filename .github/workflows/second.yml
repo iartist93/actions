@@ -30,6 +30,7 @@ jobs:
           mkdir test1
           cd test1
           mkdir test1
+          cd test1
           touch hello222222.txt
           pwd
           ls -la
