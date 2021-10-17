@@ -11,7 +11,6 @@ jobs:
     name: SSH Login Stage
     runs-on: ubuntu-latest
     steps:
-      - name: install ssh key
       - run: ls -la
 # mkdir -p ~/.ssh
 # chmod 700 ~/.ssh
