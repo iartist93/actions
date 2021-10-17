@@ -13,14 +13,17 @@ jobs:
     steps:
       - run: |
           mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
           touch ~/.ssh/authorized_keys
           touch ~/.ssh/known_hosts
+
+          chmod 700 ~/.ssh
           chmod 700 ~/.ssh/authorized_keys
           chmod 700 ~/.ssh/known_hosts
-          cat ~/.ssh/authorized_keys
+
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-          cat ~/.ssh/known_hosts
+
+        # cat ~/.ssh/authorized_keys
+        # cat ~/.ssh/known_hosts
 
         # ls -la
         # pwd
