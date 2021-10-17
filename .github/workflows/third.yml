@@ -35,7 +35,7 @@ jobs:
           END
 
           mkdir test1
-          toucn ./test1/newfile.txt
+          touch ./test1/newfile.txt
           rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
 
         env:
