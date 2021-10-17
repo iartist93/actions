@@ -27,12 +27,17 @@ jobs:
           ls -la
           ls -l .
           pwd
+          mkdir test1
+          cd test1
+          touch hello222222.txt
+          pwd
+          ls -la
 
       # - name: login again
       #   run: ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
       - name: Deploy with rsync
-        run: rsync -avz ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
+        run: rsync -avz ./test1 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
 
       - name: log ls -la
         run: ls -la
