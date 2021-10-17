@@ -26,9 +26,13 @@ jobs:
           echo "Root Directory"
           ls -la
           ls -l .
+          pwd
+
+      # - name: login again
+      #   run: ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
       - name: login again
-        run: ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+        run: rsync
 
       - name: log ls -la
         run: ls -la
