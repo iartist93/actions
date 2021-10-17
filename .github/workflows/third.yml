@@ -22,11 +22,11 @@ jobs:
 
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-          echo 'SSH_KEY' > ~/.ssh/id_rsa
+          echo '$SSH_KEY' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
       - name: Check out the source
-        run: ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+        run: ssh -A -tt -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -p 22 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -c 'ls -la'
 
         # ssh -x ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
