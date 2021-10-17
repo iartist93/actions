@@ -20,7 +20,9 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
           ls -la
           pwd
-        # echo ${{ secrets.SSH_HOST }} | base64 --decode -i > ~/.ssh/github-actions
+          echo ${{ secrets.SSH_HOST }} | base64 --decode -i > ~/.ssh/github-actions
+          cat ~/.ssh/github-actions
+
         # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
         # ls -la
         # pwd
