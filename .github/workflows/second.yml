@@ -43,8 +43,8 @@ jobs:
           pwd
           ls -l ~/.ssh
           cat ~/.ssh/known_hosts
-          ls -l ./test1/
-        # rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
+          ls -l ~/test1/
+          rsync -avz ~/test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
 
       - name: log ls -la
         run: ls -la
