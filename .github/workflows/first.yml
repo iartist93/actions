@@ -6,12 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: 'stage'
 
       - run: git config --global user.email "mongez.me@gmail.com"
 
       - run: git config --global user.name "Ahmad"
 
-      - run: git checkout -t origin/stage
+      # - run: git checkout -b stage
 
       - run: git pull origin master
 
