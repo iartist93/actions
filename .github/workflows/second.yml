@@ -24,6 +24,7 @@ jobs:
       - name: log dirs
         run: |
           echo "Root Directory"
+          ls -la
           ls -l .
 
       - name: login again
