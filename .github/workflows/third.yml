@@ -25,7 +25,7 @@ jobs:
 
           cat ~/.ssh/id_rsa
 
-        # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
         shell: bash
 
