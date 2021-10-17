@@ -35,6 +35,7 @@ jobs:
 
           mkdir test1
           touch ./test1/newfile.txt
+          ssh
 
         # ssh -x ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
