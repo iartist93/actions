@@ -3,26 +3,16 @@ on: push
 jobs:
   build:
     name: Checkout stage
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
         with:
           ref: 'stage'
 
-      - run: git config --global user.email "mongez.me@gmail.com"
-
-      - run: git config --global user.name "Ahmad"
-
-      - run: git log --oneline
-
-      # - run: git checkout -b stage
-
-      - run: git pull origin master
-
-      - run: git add .
-
-      # - run: git commit -m 'test'
-
-      - run: git push -u origin stage
+      - run: |
+          git config --global user.email "mongez.me@gmail.com"
+          git config --global user.name "Ahmad"
+          git log --oneline
+          git pull origin master
+          git add .
+          git push -u origin stage
