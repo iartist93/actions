@@ -22,11 +22,11 @@ jobs:
 
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-          echo $SSH_KEY > ~/.ssh/staging.key
-          chmod 600 ~/.ssh/staging.key
+          echo $SSH_KEY > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
       - name: Check out the source
-        run: ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/staging.key
+        run: ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
         # ssh -x ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
