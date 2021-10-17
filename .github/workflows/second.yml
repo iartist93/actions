@@ -39,7 +39,8 @@ jobs:
       - name: Deploy with rsync
         run: |
           pwd
-          rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
+          cd test1
+          rsync -avz ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
 
       - name: log ls -la
         run: ls -la
