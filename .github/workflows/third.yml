@@ -25,11 +25,9 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
           echo $SSH_PRIVATE_KEY | base64 --decode -i > ~/.ssh/github-actions
 
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
-          cat ~/.ssh/github-actions
-          cat ~/.ssh/authorized_keys
-          cat ~/.ssh/known_hosts
-
-        # ls -la
-        # pwd
+        # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
+        # cat ~/.ssh/github-actions
+        # cat ~/.ssh/authorized_keys
+        # cat ~/.ssh/known_hosts
