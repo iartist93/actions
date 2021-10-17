@@ -30,7 +30,6 @@ jobs:
             HostName $SSH_HOST
             User $SSH_USER
             IdentityFile ~/.ssh/staging.key
-            StrictHostKeyChecking no
           END
 
           cat ~/.ssh/config
