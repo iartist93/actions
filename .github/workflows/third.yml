@@ -23,19 +23,30 @@ jobs:
           chmod 700 ~/.ssh/id_rsa
 
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
 
-          cat ~/.ssh/id_rsa
+          echo "$SSH_KEY" > ~/.ssh/staging.key
+          chmod 600 ~/.ssh/staging.key
+          cat >>~/.ssh/config <<END
+          Host staging
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/staging.key
+            StrictHostKeyChecking no
+          END
 
-          git clone git@github.com:iartist93/actions.git
-
-          ls -la
-
-        # rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
-
-        # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
 
         shell: bash
+
+        # echo ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/id_rsa
+        # cat ~/.ssh/id_rsa
+        # git clone git@github.com:iartist93/actions.git
+        # ls -la
+        # rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
+        # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
         # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
         # cat ~/.ssh/github-actions
