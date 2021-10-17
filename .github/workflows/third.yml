@@ -26,7 +26,7 @@ jobs:
           chmod 600 ~/.ssh/staging.key
           cat >>~/.ssh/config <<END
 
-          Host *
+          Host staging
             HostName $SSH_HOST
             User $SSH_USER
             IdentityFile ~/.ssh/staging.key
@@ -35,7 +35,9 @@ jobs:
 
           mkdir test1
           touch ./test1/newfile.txt
-          ssh
+
+      - name: Check out the source
+        run: ssh staging 'ls -la'
 
         # ssh -x ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
