@@ -26,6 +26,7 @@ jobs:
           chmod 600 ~/.ssh/staging.key
 
           cat >>~/.ssh/config <<END
+
           Host staging
             HostName $SSH_HOST
             User $SSH_USER
@@ -36,7 +37,7 @@ jobs:
           cat ~/.ssh/config
 
       - name: Check out the source
-        run: ssh staging 'ls -la'
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/staging.key
 
         # ssh -x ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
