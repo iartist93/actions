@@ -29,6 +29,7 @@ jobs:
           pwd
           mkdir test1
           cd test1
+          mkdir test1
           touch hello222222.txt
           pwd
           ls -la
@@ -41,7 +42,8 @@ jobs:
           cd test1
           pwd
           ls -l ~/.ssh
-          rsync -avz ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
+          nano ~/.ssh/known_hosts
+          rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
 
       - name: log ls -la
         run: ls -la
