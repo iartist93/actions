@@ -34,11 +34,9 @@ jobs:
           END
 
           cat ~/.ssh/config
-          mkdir test1
-          touch ./test1/newfile.txt
 
-      - name: Check out the source
-        run: ssh staging 'ls -la'
+        # - name: Check out the source
+        # run: ssh staging 'ls -la'
 
         # ssh -x ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
