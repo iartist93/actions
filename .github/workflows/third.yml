@@ -26,11 +26,11 @@ jobs:
 
           ls -la
           echo $SSH_PRIVATE_KEY | base64 --decode -i > ~/.ssh/github-actions
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
+
           cat ~/.ssh/github-actions
+          cat ~/.ssh/authorized_keys
+          cat ~/.ssh/known_hosts
 
-        # cat ~/.ssh/authorized_keys
-        # cat ~/.ssh/known_hosts
-
-        # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
         # ls -la
         # pwd
