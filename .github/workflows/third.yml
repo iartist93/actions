@@ -27,9 +27,11 @@ jobs:
 
           cat ~/.ssh/id_rsa
 
-          mkdir test1
-          touch ./test1/newfile1111111.txt
-          rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
+          git clone git@bitbucket.org:uniyoumna/de-opd-manager.git
+
+          ls -la
+
+        # rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
 
         # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
