@@ -7,16 +7,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: git checkout -b stage1
-
-      - run: git pull origin master
-
       - run: git config --global user.email "mongez.me@gmail.com"
 
       - run: git config --global user.name "Ahmad"
+
+      - run: git checkout stage
+
+      - run: git pull origin master
 
       - run: git add .
 
       - run: git commit -m 'test'
 
-      - run: git push -u origin stage1
+      - run: git push -u origin stage
