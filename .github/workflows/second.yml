@@ -32,7 +32,7 @@ jobs:
       #   run: ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
       - name: login again
-        run: rsync
+        run: rsync -avz ./tes1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zqa0lv996vr4/public_html/dev/de-opd-manager/test1
 
       - name: log ls -la
         run: ls -la
