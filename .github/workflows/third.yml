@@ -27,7 +27,7 @@ jobs:
 
           cat ~/.ssh/id_rsa
 
-          git clone git@bitbucket.org:uniyoumna/de-opd-manager.git
+          git clone git@github.com:iartist93/actions.git
 
           ls -la
 
