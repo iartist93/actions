@@ -43,7 +43,7 @@ jobs:
           cd test1
           pwd
           ls -l ~/.ssh
-          nano ~/.ssh/known_hosts
+          cat ~/.ssh/known_hosts
           rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
 
       - name: log ls -la
