@@ -23,9 +23,8 @@ jobs:
           chmod 700 ~/.ssh/github-actions
 
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-
-          ls -la
           echo $SSH_PRIVATE_KEY | base64 --decode -i > ~/.ssh/github-actions
+
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/github-actions
 
           cat ~/.ssh/github-actions
