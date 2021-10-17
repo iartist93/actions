@@ -26,7 +26,7 @@ jobs:
           chmod 600 ~/.ssh/staging.key
 
       - name: Check out the source
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/staging.key
+        run: ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/staging.key
 
         # ssh -x ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
 
