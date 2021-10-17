@@ -35,9 +35,10 @@ jobs:
 
           mkdir test1
           touch ./test1/newfile.txt
-          rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
+          ssh -tt -vvv ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/staging.key
 
-        # ssh -tt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/staging.key
+        ## rsync -avz ./test1/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/dev/de-opd-manager/test1/
+
         # ssh $SSH_USER@$SSH_HOST
 
         env:
